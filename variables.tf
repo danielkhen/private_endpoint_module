@@ -19,31 +19,15 @@ variable "private_dns_enabled" {
   default     = false
 }
 
-variable "dns_name" {
-  description = "(Optional) The name of the private dns zone, Required if private dns is enabled."
+variable "private_dns_zone_id" {
+  description = "(Optional) The id of the private dns zone to link with the private endpoint."
   type        = string
   default     = null
 }
 
-variable "vnet_links" {
-  description = "(Optional) A list of virtual networks to link with the dns zone."
-  type = list(object({
-    vnet_id = string
-    name    = string
-  }))
-  default = []
-}
-
-
 variable "subnet_id" {
   description = "(Required) The subnet id for the private endpoint."
   type        = string
-}
-
-variable "private_service_connection_name" {
-  description = "(Optional) The name of the private service connection."
-  type        = string
-  default     = "private-connection"
 }
 
 variable "resource_id" {
@@ -54,12 +38,6 @@ variable "resource_id" {
 variable "subresource_name" {
   description = "(Required) The subresource to associate with the private endpoint."
   type        = string
-}
-
-variable "dns_prefix" {
-  description = "(Optional) The name of the private endpoint in the private dns zone."
-  type        = string
-  default     = "private-endpoint"
 }
 
 variable "log_analytics_id" {

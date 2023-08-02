@@ -1,4 +1,4 @@
-resource "azurerm_private_dns_zone" "dns_zone" {
+resource "azurerm_private_dns_zone" "dns_zone" { #TODO maybe switch with module
   count = var.private_dns_enabled ? 1 : 0
 
   name                = var.dns_name
@@ -26,12 +26,16 @@ resource "azurerm_private_dns_zone_virtual_network_link" "vnet_links" {
   }
 }
 
+locals {
+  nic_name = "${var.name}-nic"
+}
+
 resource "azurerm_private_endpoint" "private_endpoint" {
   location                      = var.location
   name                          = var.name
   resource_group_name           = var.resource_group_name
   subnet_id                     = var.subnet_id
-  custom_network_interface_name = var.nic_name
+  custom_network_interface_name = local.nic_name
 
   private_service_connection {
     name                           = var.private_service_connection_name

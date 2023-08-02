@@ -40,12 +40,6 @@ variable "subnet_id" {
   type        = string
 }
 
-variable "nic_name" {
-  description = "(Optional) The name of the network interface of the private endpoint."
-  type        = string
-  default     = null
-}
-
 variable "private_service_connection_name" {
   description = "(Optional) The name of the private service connection."
   type        = string

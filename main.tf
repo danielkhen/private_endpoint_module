@@ -5,8 +5,8 @@ locals {
 }
 
 resource "azurerm_private_endpoint" "private_endpoint" {
-  location                      = var.location
   name                          = var.name
+  location                      = var.location
   resource_group_name           = var.resource_group_name
   subnet_id                     = var.subnet_id
   custom_network_interface_name = local.nic_name

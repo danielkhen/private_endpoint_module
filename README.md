@@ -10,19 +10,15 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_dns_name"></a> [dns\_name](#input\_dns\_name) | (Optional) The name of the private dns zone, Required if private dns is enabled. | `string` | `null` | no |
-| <a name="input_dns_prefix"></a> [dns\_prefix](#input\_dns\_prefix) | (Optional) The name of the private endpoint in the private dns zone. | `string` | `"private-endpoint"` | no |
 | <a name="input_location"></a> [location](#input\_location) | (Required) The location of the private endpoint and private dns zone. | `string` | n/a | yes |
 | <a name="input_log_analytics_id"></a> [log\_analytics\_id](#input\_log\_analytics\_id) | (Required) The id of the log analytics workspace. | `string` | n/a | yes |
 | <a name="input_name"></a> [name](#input\_name) | (Required) The name of the private endpoint. | `string` | n/a | yes |
-| <a name="input_nic_name"></a> [nic\_name](#input\_nic\_name) | (Optional) The name of the network interface of the private endpoint. | `string` | `null` | no |
 | <a name="input_private_dns_enabled"></a> [private\_dns\_enabled](#input\_private\_dns\_enabled) | (Optional) Should a private dns zone be included. | `bool` | `false` | no |
-| <a name="input_private_service_connection_name"></a> [private\_service\_connection\_name](#input\_private\_service\_connection\_name) | (Optional) The name of the private service connection. | `string` | `"private-connection"` | no |
+| <a name="input_private_dns_zone_id"></a> [private\_dns\_zone\_id](#input\_private\_dns\_zone\_id) | (Optional) The id of the private dns zone to link with the private endpoint. | `string` | `null` | no |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | (Required) The name of the resource group. | `string` | n/a | yes |
 | <a name="input_resource_id"></a> [resource\_id](#input\_resource\_id) | (Required) The resource id to associate with the private endpoint. | `string` | n/a | yes |
 | <a name="input_subnet_id"></a> [subnet\_id](#input\_subnet\_id) | (Required) The subnet id for the private endpoint. | `string` | n/a | yes |
 | <a name="input_subresource_name"></a> [subresource\_name](#input\_subresource\_name) | (Required) The subresource to associate with the private endpoint. | `string` | n/a | yes |
-| <a name="input_vnet_links"></a> [vnet\_links](#input\_vnet\_links) | (Optional) A list of virtual networks to link with the dns zone. | <pre>list(object({<br>    vnet_id = string<br>    name    = string<br>  }))</pre> | `[]` | no |
 
 ## Outputs
 
@@ -36,8 +32,6 @@
 
 | Name | Type |
 |------|------|
-| [azurerm_private_dns_zone.dns_zone](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone) | resource |
-| [azurerm_private_dns_zone_virtual_network_link.vnet_links](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone_virtual_network_link) | resource |
 | [azurerm_private_endpoint.private_endpoint](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_endpoint) | resource |
 
 ## Modules
